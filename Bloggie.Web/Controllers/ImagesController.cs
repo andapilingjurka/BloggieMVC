@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using test1.Repositories;
+using Bloggie.Repositories;
 
-namespace test1.Controllers
+namespace Bloggie.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

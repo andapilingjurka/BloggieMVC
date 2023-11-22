@@ -1,7 +1,7 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 
-namespace test1.Repositories
+namespace Bloggie.Repositories
 {
     public class CloudinaryImageRepository : IImageRepository
     {

@@ -1,4 +1,4 @@
-﻿namespace test1.Repositories
+﻿namespace Bloggie.Repositories
 {
     public interface IImageRepository
     {
