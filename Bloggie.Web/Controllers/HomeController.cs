@@ -36,7 +36,7 @@ namespace Bloggie.Web.Controllers
                 Tags = tags
             };
 
-            return View(blogPosts);
+            return View(model);
         }
 
         public IActionResult Privacy()
