@@ -45,7 +45,11 @@ namespace Bloggie.Web.Repositories
             return await bloggieDbContext.BlogPosts.Include(x => x.Tag).FirstOrDefaultAsync(x => x.Id == id);
         }
 
-      
+        public async Task<BlogPost?> GetByUrlHandleAsync(string urlHandle) //per me display single blog na duhet 
+        {
+            return await bloggieDbContext.BlogPosts.Include(x => x.Tag)
+                .FirstOrDefaultAsync(x => x.UrlHandle == urlHandle);
+        }
 
         public async Task<BlogPost?> UpdateAsync(BlogPost blogPost)
         {
