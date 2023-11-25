@@ -11,6 +11,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BloggieDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("BloggieDbConnectionString")));
 
+builder.Services.AddDbContext<AuthDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("BloggieAuthDbConnectionString")));
+
 builder.Services.AddScoped<ITagRepository, TagRepository>();
 
 builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
