@@ -47,6 +47,47 @@ namespace Bloggie.Web.Data
 
                 }
             };
+            builder.Entity<IdentityRole>().HasData(roles);
+            //Seed SuperAdminUser
+
+            var superAdminId = "823ff811-fe7b-4b83-84e2-330ba8905a23";
+            var superAdminUser = new IdentityUser
+            {
+                UserName = "superadmin@bloggie.com",
+                Email = "superadmin@bloggie.com",
+                NormalizedEmail = "superadmin@bloggie.com".ToUpper(),
+                NormalizedUserName = "superadmin@bloggie.com".ToUpper(),
+                Id = superAdminId
+            };
+            superAdminUser.PasswordHash = new PasswordHasher<IdentityUser>()
+                .HashPassword(superAdminUser, "Superadmin@123");
+
+            builder.Entity<IdentityUser>().HasData(superAdminUser);
+
+            //Add All roles to SuperAdminUser
+            var superAdminRoles = new List<IdentityUserRole<string>>
+            {
+                new IdentityUserRole<string>
+                {
+                    RoleId = adminRoleId,
+                    UserId = superAdminId
+                },
+                new IdentityUserRole<string>
+                {
+                    RoleId = superAdminRoleId,
+                    UserId = superAdminId
+                },
+                new IdentityUserRole<string>
+                {
+                    RoleId =userRoleId,
+                    UserId = superAdminId
+                }
+            };
+            builder.Entity<IdentityUserRole<string>>().HasData(superAdminRoles);
         }
+
     }
 }
+
+
+    
