@@ -1,4 +1,5 @@
-﻿using Bloggie.Web.Repositories;
+﻿using Bloggie.Web.Models.ViewModels;
+using Bloggie.Web.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
