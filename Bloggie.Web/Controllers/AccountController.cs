@@ -68,6 +68,12 @@ namespace Bloggie.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.Username,
                  loginViewModel.Password, false, false);
             if (signInResult != null && signInResult.Succeeded)
