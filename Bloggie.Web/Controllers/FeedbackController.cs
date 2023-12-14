@@ -32,7 +32,7 @@ namespace Bloggie.Web.Controllers
 
         [HttpPost]
         [ActionName("Add")]
-        public async Task<IActionResult> Add(AddFeedbackRequest addKontaktRequest)
+        public async Task<IActionResult> Add(AddFeedbackRequest addFeedbackRequest)
         {
 
             if (signInManager.IsSignedIn(User))
@@ -40,7 +40,7 @@ namespace Bloggie.Web.Controllers
                 var userId = (userManager.GetUserName(User));
                 var domainModel = new Feedback
                 {
-                    Mesazhi = addKontaktRequest.Mesazhi,
+                    Mesazhi = addFeedbackRequest.Mesazhi,
                     UserId = Guid.Parse(userManager.GetUserId(User)),
                     Username = userId,
                     DateAdded = DateTime.Now
